@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-//const dbURI = 'mongodb://localhost/Loc8r';
 const readLine = require('readline');
 mongoose.set("strictQuery", false);
 
-const dbPassword = process.env.MONGODB_PASSWORD;
+// const dbURI = 'mongodb://localhost/Loc8r';
+const dbPassword = process.env.Xd8TA4oNNgHdEYDk;
 const dbURI = `mongodb+srv://yuhwa:Xd8TA4oNNgHdEYDk@cluster0.no2bi.mongodb.net/Loc8r`;
 
 const connect = () => {
@@ -59,3 +59,6 @@ process.on('SIGTERM', () => {
 connect();
 
 require('./locations');
+require('./users');
+
+
