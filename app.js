@@ -5,7 +5,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
-const passport = require('passport'); // Required before the database models
 require('./app_api/models/db');
 require('./app_api/config/passport'); // Configuration after the database models
 
