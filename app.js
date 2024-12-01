@@ -14,23 +14,31 @@ var usersRouter = require('./app_server/routes/users');
 var apiRouter = require('./app_api/routes/index');
 var app = express();
 
+const cors = require('cors');
+const passport = require('passport');
+const corsoptions = {
+  origin: '*',
+  optionsSuccessStatus: 200 
+};
+app.use(cors(corsoptions));
+
 app.use('/api', (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-with, Content-type, Accept, Authorization");
   next();
-});
-
 // view engine setup
-app.set('views', path.join(__dirname, 'app_server','views'));
+app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'app_public', 'build/browser')));
 app.use(passport.initialize());
+});
+
 // app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api', apiRouter);
