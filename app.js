@@ -7,14 +7,14 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 require('./app_api/models/db');
 require('./app_api/config/passport'); // Configuration after the database models
-
+const passport = require('passport');
 // var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
 var apiRouter = require('./app_api/routes/index');
 var app = express();
 
 const cors = require('cors');
-const passport = require('passport');
+
 const corsoptions = {
   origin: '*',
   optionsSuccessStatus: 200 
